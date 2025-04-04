@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweeter</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Home</h1>
+        </header>
+
+        <% for (let post of posts) { %>
+            <div class="post">
+                <h2 class="user">@<%= post.username %></h2>
+                <p class="content"><%= post.content %></p>
+                
+                <div class="post-actions">
+                    <button class="action-btn">
+                        <i class="far fa-comment"></i>
+                        <a href="/posts/<%=post.id%>">View</a>
+                    </button>
+                    
+                    <button class="action-btn">
+                        <i class="far fa-edit"></i>
+                        <a href="/posts/<%=post.id%>/edit">Edit</a>
+                    </button>
+                    
+                    <form action="/posts/<%=post.id%>?_method=DELETE" method="POST" style="display:inline;">
+                        <button type="submit" class="action-btn delete-btn">
+                            <i class="far fa-trash-alt"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        <% } %>
+
+        <a href="/posts/new">
+            <button class="new-tweet-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </a>
+
+        <footer>
+            <p>&copy; 2023 Tweeter. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

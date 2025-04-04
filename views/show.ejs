@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweet</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Tweet</h1>
+      </header>
+      
+      <div class="post">
+        <h2 class="user">@<%= post.username %></h2>
+        <p class="content"><%= post.content %></p>
+        
+        <div class="post-actions">
+          <button class="action-btn">
+            <i class="far fa-heart"></i> Like
+          </button>
+          
+          <button class="action-btn">
+            <i class="fas fa-retweet"></i> Retweet
+          </button>
+          
+          <button class="action-btn">
+            <i class="far fa-edit"></i>
+            <a href="/posts/<%= post.id %>/edit">Edit</a>
+          </button>
+        </div>
+      </div>
+      
+      <a href="/posts" style="display: block; margin-top: 20px;">
+        <button class="action-btn">
+          <i class="fas fa-arrow-left"></i> Back to Timeline
+        </button>
+      </a>
+    </div>
+  </body>
+</html>
